@@ -1,0 +1,33 @@
+{% extends 'classroom/base1.html' %}
+
+{% block content %}
+<!--   <h2>Welcome to the Coding Club Recruitment Test 2020! <span class="icon-emo-happy"></span></h2>
+  <p class="lead">
+    If you already have an account, go ahead and <a href="{% url 'login' %}">log in</a>. If you are new to this portal, get started
+    by creating a <a href="{% url 'student_signup' %}">student account</a>
+  </p>
+  <hr>
+  <h3>What's this about?</h3>
+  <p>
+    
+  </p>
+
+  <p class="mb-0">This project has been modified from the original source code by<br><a href="https://www.facebook.com/profile.php?id=100006958546245">Ritwik Ganguly</i></a></p> -->
+  <section id="home">
+  <div class="container">
+    <div class="row">
+      <div  class="col-md-12 col-sm-12">
+        <h2>Arapça Seviye Belirleme Sınavına</h2>
+        <h1>Hoşgeldiniz!</h1>
+        <hr>
+        <p class="lead">
+    Zaten Hesabın Varsa <a href="{% url 'login' %}" style="color: #FFFFFF; font-weight: bold;"> Giriş Yap </a>.<br> Eğer Yeni İsen bir
+  <a href="{% url 'student_signup' %}" style="color: #FFFFFF; font-weight: bold;">Öğrenci Hesabı Oluştur.</a>
+  </p>
+        <a href="{% url 'login' %}" class="smoothScroll btn btn-danger">Giriş Yap</a>
+        <a href="{% url 'student_signup' %}" class="smoothScroll btn btn-default">Hesap Oluştur</a>
+      </div>
+    </div>
+  </div>    
+</section>
+{% endblock %}

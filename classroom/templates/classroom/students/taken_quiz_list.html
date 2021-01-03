@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% include 'classroom/students/_header.html' with active='taken' %}
+  <div class="card">
+    <table class="table mb-0">
+      <thead>
+        <tr>
+          <th>Sınav Adı 🌺</th>
+          <th>Konu 🥀</th>
+          <th>Puan 🌸   </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for taken_quiz in taken_quizzes %}
+          <tr>
+            <td>{{ taken_quiz.quiz.name }}</td>
+            <td>{{ taken_quiz.quiz.subject.get_html_badge }}</td>
+           
+            {% if taken_quiz.score == 100 %}
+            <td>{{ taken_quiz.score }}  🥰 skor</td>
+
+             {% elif taken_quiz.score > 70 %}
+            <td>{{ taken_quiz.score }} 😁 skor</td>
+
+            {% elif taken_quiz.score >= 50 %}
+            <td>{{ taken_quiz.score }}  😏skor</td>
+
+             {% elif taken_quiz.score < 50 %}
+            <td>{{ taken_quiz.score }} 😕 skor</td>
+
+
+             {% elif taken_quiz.score < 30 %}
+            <td>{{ taken_quiz.score }} 😢 skor</td>
+
+             {% elif taken_quiz.score < 10 %}
+            <td>{{ taken_quiz.score }}  😭 skor</td>
+
+              {% else%}
+            <td>{{ taken_quiz.score }} skor</td>
+              {% endif%}
+
+          </tr>
+        {% empty %}
+          <tr>
+            <td class="bg-light text-center font-italic" colspan="3">Henüz bir Sınav bitirmedin</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

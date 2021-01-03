@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'teachers:quiz_change_list' %}">Sınavlarım</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'teachers:quiz_change' quiz.pk %}">{{ quiz.name }}</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'teachers:question_change' quiz.pk question.pk %}">{{ question.text }}</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Silme Onayı</li>
+    </ol>
+  </nav>
+  <h2 class="mb-3">Confirm deletion</h2>
+  <p class="lead">Gerçekten <strong>"{{ question.text }}"</strong> adlı soruyu silmek istiyomusun? Geri alma işlemi yok</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger btn-lg">Evet Sil </button>
+    <a href="{% url 'teachers:question_change' quiz.pk question.pk %}" class="btn btn-outline-secondary btn-lg" role="button">İptal</a>
+  </form>
+{% endblock %}
