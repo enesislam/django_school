@@ -1,3 +1,3 @@
 # django_school
 
-Another Quiz App 
+Django Quiz App
